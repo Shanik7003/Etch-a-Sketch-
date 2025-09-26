@@ -7,7 +7,6 @@ grid.addEventListener("mouseover", (e) => {
 });
 
 //codigo para el popup
-
 let popup = document.getElementById("popup");
 let okButton = document.getElementById("ok");
 let sizeButton = document.querySelector(".button");
@@ -26,26 +25,29 @@ okButton.addEventListener("click", () => {
     }
     else{
         popup.style.display = "none";
-        createGrid(number);
         grid.style.display = "flex";
+        createGrid(number);
     }
 } );
 
 function createGrid(num) {
-    //primero se debe verificar que el  numero sea valido, luego lo hago 
     
+    let gridSize = grid.clientWidth; // ancho en píxeles del grid
+    const cellSize = Math.floor(gridSize / num); // tamaño exacto en px
 
     for (let i = 0; i < num; i++) {
-    let row = document.createElement("div");
-    row.classList.add("row");
+        let row = document.createElement("div");
+        row.classList.add("row");
 
-    for (let j = 0; j < num; j++) {
-        let cell = document.createElement("div");
-        cell.classList.add("cell"); // 👈 le pongo clase
-        row.appendChild(cell);
+        for (let j = 0; j < num; j++) {
+            let cell = document.createElement("div");
+            cell.classList.add("cell");
+            cell.style.width = cellSize + "px";
+            cell.style.height = cellSize + "px";
+            row.appendChild(cell);
+        }
+
+        grid.appendChild(row);
     }
-
-    grid.appendChild(row);
-}
 
 }

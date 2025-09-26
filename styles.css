@@ -3,22 +3,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80vw;
-  height: 80vw;
+  width: 700px ;  /* 👈 el lado será el 80% del menor entre ancho/alto de la ventana */
+  height: 700px;  /* así siempre será un cuadrado proporcional */
   box-sizing: border-box;
   flex-shrink: 0;
 }
 
 .row {
   display: flex;
-  flex-shrink: 1;
+  
 }
 
 .cell {
-  width: 30px;
-  height: 30px;
   border: 1px solid black;
-  flex: 1;
+  
 }
 
 .popup {
